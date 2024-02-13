@@ -17,13 +17,42 @@ section {
 
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
-@media only screen and (min-width: 1200px) {
+.item {
+    flex: 1 1 0px;
+}
+
+/*
+    Work due priority styles
+*/
+.dangerLevelOne {
+    p {
+        color: green;
+    }
+}
+
+.dangerLevelTwo {
+    p {
+        color: orange;
+    }
+}
+
+.dangerLevelThree {
+    p {
+        color: red;
+    }
+}
+
+@media only screen and (min-width: 800px) {
     h1,
     h2 {
         padding-top: 10px;
         padding-bottom: 5px;
+    }
+    .container {
+        flex-direction: row;
     }
 }
