@@ -28,9 +28,20 @@ section {
 /*
     Work due priority styles
 */
+.dangerLevelOne,
+.dangerLevelTwo,
+.dangerLevelThree {
+    p {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        border: 1px solid black;
+        padding: 10px;
+    }
+}
+
 .dangerLevelOne {
     p {
-        color: green;
+        color: red;
     }
 }
 
@@ -42,16 +53,18 @@ section {
 
 .dangerLevelThree {
     p {
-        color: red;
+        color: green;
     }
 }
 
 @media only screen and (min-width: 800px) {
+
     h1,
     h2 {
         padding-top: 10px;
         padding-bottom: 5px;
     }
+
     .container {
         flex-direction: row;
     }
