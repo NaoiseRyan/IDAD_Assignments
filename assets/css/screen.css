@@ -35,6 +35,7 @@ section {
         padding-bottom: 10px;
         border: 2px solid black;
     }
+
     p {
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         text-align: center;
@@ -44,22 +45,36 @@ section {
 
 .dangerLevelOne {
     order: 3;
+
     h2 {
-        background-color:red;
+        background-color: red;
+    }
+
+    h2:hover {
+        background-color: rgb(197, 40, 40);
     }
 }
 
+
 .dangerLevelTwo {
     order: 2;
+
     h2 {
         background-color: orange;
+    }
+    h2:hover {
+        background-color: rgb(195, 134, 21);
     }
 }
 
 .dangerLevelThree {
     order: 1;
+
     h2 {
         background-color: rgb(34, 201, 34);
+    }
+    h2:hover {
+        background-color: rgb(27, 153, 27);
     }
 }
 
@@ -75,6 +90,7 @@ section {
 }
 
 @media only screen and (min-width: 800px) {
+
     h1,
     h2 {
         padding-top: 10px;
