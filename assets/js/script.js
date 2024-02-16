@@ -16,7 +16,6 @@ function declareWork() {
         [26, 2, 2024]
     )
     assignmentsArray.push(artWorld2);
-
     
     let Portfolio3 = new newAssignment(
         "Portfolio 3 - Paper wireframe",
@@ -25,6 +24,38 @@ function declareWork() {
         [26, 2, 2024]
     )
     assignmentsArray.push(Portfolio3);
+
+    let Portfolio4 = new newAssignment(
+        "Portfolio 4 - High fidel wireframe",
+        "Ui Prototyping",
+        "Produce a High fidelity wireframe of your portfolio website using digital tools",
+        [12, 3, 2024]
+    )
+    assignmentsArray.push(Portfolio4);
+
+    let UiLab3 = new newAssignment(
+        "Lab 3",
+        "Web Ui Design",
+        "Integrate box model and site redirects to website",
+        [26, 2, 2024]
+    )
+    assignmentsArray.push(UiLab3);
+
+    let UiLab4 = new newAssignment(
+        "Lab 4",
+        "Web Ui Design",
+        "?????",
+        [26, 2, 2024]
+    )
+    assignmentsArray.push(UiLab4);
+
+    let designResearch = new newAssignment(
+        "Researching design topics",
+        "Design Psycology",
+        "Research and make a powerpoint on your topic",
+        [26, 2, 2024]
+    )
+    assignmentsArray.push(designResearch);
 }
 
 //--------------------------------

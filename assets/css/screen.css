@@ -46,26 +46,17 @@ section {
     h2 {
         background-color:red;
     }
-    p {
-        color: red;
-    }
 }
 
 .dangerLevelTwo {
     h2 {
         background-color: orange;
     }
-    p {
-        color: orange;
-    }
 }
 
 .dangerLevelThree {
     h2 {
         background-color: rgb(34, 201, 34);
-    }
-    p {
-        color: green;
     }
 }
 
@@ -74,6 +65,10 @@ section {
     padding: 10px;
     margin: 10px;
     background-color: white;
+}
+
+.workDiv:hover {
+    background-color: rgb(187, 221, 224);
 }
 
 @media only screen and (min-width: 800px) {
