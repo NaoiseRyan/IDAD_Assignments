@@ -43,18 +43,21 @@ section {
 }
 
 .dangerLevelOne {
+    order: 3;
     h2 {
         background-color:red;
     }
 }
 
 .dangerLevelTwo {
+    order: 2;
     h2 {
         background-color: orange;
     }
 }
 
 .dangerLevelThree {
+    order: 1;
     h2 {
         background-color: rgb(34, 201, 34);
     }
@@ -72,7 +75,6 @@ section {
 }
 
 @media only screen and (min-width: 800px) {
-
     h1,
     h2 {
         padding-top: 10px;
