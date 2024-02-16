@@ -1,16 +1,38 @@
-class newAssignment {
-    constructor(title, subject, description, dueDate) {
-        this.title = title;
-        this.subject = subject;
-        this.description = description;
-        this.dueDate = dueDate;
+//----------------------------- Work
+function declareWork() {
+    class newAssignment {
+        constructor(title, subject, description, dueDate) {
+            this.title = title;
+            this.subject = subject;
+            this.description = description;
+            this.dueDate = dueDate;
+        }
     }
+
+    let artWorld2 = new newAssignment(
+        "World building - Final delivery",
+        "3d Art",
+        "Draw 1 Landscape, 2 Flora, 1 Fauna, 2 Technology, 1 Race",
+        [26, 2, 2024]
+    )
+    assignmentsArray.push(artWorld2);
+
+    
+    let Portfolio3 = new newAssignment(
+        "Portfolio 3 - Paper wireframe",
+        "Ui Prototyping",
+        "Produce a paper wireframe of your portfolio website",
+        [26, 2, 2024]
+    )
+    assignmentsArray.push(Portfolio3);
 }
 
+//--------------------------------
 const assignmentsArray = [];
 const dangerLevelOneArray = [];
 const dangerLevelTwoArray = [];
 const dangerLevelThreeArray = [];
+let currentDateArray = getCurrentDate();
 
 function getCurrentDate() {
     let currentDay = new Date().getDate();
@@ -21,89 +43,95 @@ function getCurrentDate() {
     return currentDate;
 }
 
-let currentDateArray = getCurrentDate();
+//-----------Calculations
+function sortArrays() {
+    for (let i = 0; i < assignmentsArray.length; i++) {
+        let yearDifference = assignmentsArray[i].dueDate[2] - currentDateArray[2];
+        let monthDifference = assignmentsArray[i].dueDate[1] - currentDateArray[1];
+        let dateDifference = assignmentsArray[i].dueDate[0] - currentDateArray[0];
+        let daysTillDue = (yearDifference * 365) + (monthDifference * 30) + dateDifference;
 
-// Work
-let artWorld2 = new newAssignment(
-    "World building - Final delivery",
-    "3d Art",
-    "Draw 1 Landscape, 2 Flora, 1 Fauna, 2 Technology, 1 Race",
-    [26, 2, 2024]
-)
-assignmentsArray.push(artWorld2);
-
-let Portfolio3 = new newAssignment(
-    "Portfolio 3 - Paper wireframe",
-    "Ui Prototyping",
-    "Produce a paper wireframe of your portfolio website",
-    [26, 2, 2024]
-)
-assignmentsArray.push(artWorld2);
-
-//Calculations
-for (let i = 0; i < assignmentsArray.length; i++) {
-
-    let yearDifference = assignmentsArray[i].dueDate[2] - currentDateArray[2];
-    let monthDifference = assignmentsArray[i].dueDate[1] - currentDateArray[1];
-    let dateDifference = assignmentsArray[i].dueDate[0] - currentDateArray[0];
-    let daysTillDue = (yearDifference * 365) + (monthDifference * 30) + dateDifference;
-
-    if (daysTillDue < 1) {
-        dangerLevelOneArray.push(assignmentsArray[i]);
-        console.log("Late")
-    }
-    else if (daysTillDue <= 7) {
-        dangerLevelTwoArray.push(assignmentsArray[i]);
-        console.log("7 days")
-    }
-    else {
-        dangerLevelThreeArray.push(assignmentsArray[i]);
-        console.log("a while")
+        if (daysTillDue < 1) {
+            dangerLevelOneArray.push(assignmentsArray[i]);
+            console.log("Late")
+        }
+        else if (daysTillDue <= 7) {
+            dangerLevelTwoArray.push(assignmentsArray[i]);
+            console.log("7 days")
+        }
+        else {
+            dangerLevelThreeArray.push(assignmentsArray[i]);
+            console.log("a while")
+        }
     }
 }
 
 //JS to HTML
-let dangerLevelThreeHtml = document.getElementById("dangerLevelThreeId");
-let dangerLevelTwoHtml = document.getElementById("dangerLevelTwoId");
-let dangerLevelOneHtml = document.getElementById("dangerLevelOneId");
 
-for (let i = 0; i < dangerLevelThreeArray.length; i++) {
-    //Title
-    dangerLevelThreeHtml.innerHTML += dangerLevelThreeArray[i].title + "<br>";
-    //Subject
-    dangerLevelThreeHtml.innerHTML += dangerLevelThreeArray[i].subject + "<br>";
-    //Link
-    dangerLevelThreeHtml.innerHTML += dangerLevelThreeArray[i].description + "<br>";
-    //Date
-    dangerLevelThreeHtml.innerHTML += dangerLevelThreeArray[i].dueDate + "<br> <br>";
-    //Linebreaker
-    dangerLevelThreeHtml.innerHTML += "------------------------------------ <br>";
+function updateHtml() {
+    let dangerLevelThreeHtml = document.getElementById("dangerLevelThreeId");
+    let dangerLevelTwoHtml = document.getElementById("dangerLevelTwoId");
+    let dangerLevelOneHtml = document.getElementById("dangerLevelOneId");
+
+    for (let i = 0; i < dangerLevelThreeArray.length; i++) {
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("workDiv")
+
+        //Title
+        newDiv.append(createParagraph(dangerLevelThreeArray[i].title));
+        //Subject
+        newDiv.append(createParagraph(dangerLevelThreeArray[i].subject));
+        //Link
+        newDiv.append(createParagraph(dangerLevelThreeArray[i].description));
+        //Date
+        newDiv.append(createParagraph(dangerLevelThreeArray[i].dueDate));
+        //appendTohtml
+        dangerLevelThreeHtml.append(newDiv);
+    }
+
+    for (let i = 0; i < dangerLevelTwoArray.length; i++) {
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("workDiv")
+        
+        //Title
+        newDiv.append(createParagraph(dangerLevelTwoArray[i].title));
+        //Subject
+        newDiv.append(createParagraph(dangerLevelTwoArray[i].subject));
+        //Link
+        newDiv.append(createParagraph(dangerLevelTwoArray[i].description));
+        //Date
+        newDiv.append(createParagraph(dangerLevelTwoArray[i].dueDate));
+        //appendTohtml
+        dangerLevelTwoHtml.append(newDiv);
+    }
+
+    for (let i = 0; i < dangerLevelOneArray.length; i++) {
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("workDiv")
+        
+        //Title
+        newDiv.append(createParagraph(dangerLevelOneHtml[i].title));
+        //Subject
+        newDiv.append(createParagraph(dangerLevelOneHtml[i].subject));
+        //Link
+        newDiv.append(createParagraph(dangerLevelOneHtml[i].description));
+        //Date
+        newDiv.append(createParagraph(dangerLevelOneHtml[i].dueDate));
+        //appendTohtml
+        dangerLevelOneHtml.append(newDiv);
+    }
 }
 
-for (let i = 0; i < dangerLevelTwoArray.length; i++) {
-
-    console.log(dangerLevelTwoArray[i]);
-    //Title
-    dangerLevelTwoHtml.innerHTML += dangerLevelTwoArray[i].title + "<br>";
-    //Subject
-    dangerLevelTwoHtml.innerHTML += dangerLevelTwoArray[i].subject + "<br>";
-    //Link
-    dangerLevelTwoHtml.innerHTML += dangerLevelTwoArray[i].description + "<br>";
-    //Date
-    dangerLevelTwoHtml.innerHTML += dangerLevelTwoArray[i].dueDate + "<br> <br>";
-    //Linebreaker
-    dangerLevelTwoHtml.innerHTML += "------------------------------------ <br>";
+function createParagraph(text){
+    let newP = document.createElement("p");
+    newP.innerHTML = text;
+    return newP;
 }
 
-for (let i = 0; i < dangerLevelOneArray.length; i++) {
-    //Title
-    dangerLevelOneHtml.innerHTML += dangerLevelOneArray[i].title + "<br>";
-    //Subject
-    dangerLevelOneHtml.innerHTML += dangerLevelOneArray[i].subject + "<br>";
-    //Link
-    dangerLevelOneHtml.innerHTML += dangerLevelOneArray[i].description + "<br>";
-    //Date
-    dangerLevelOneHtml.innerHTML += dangerLevelOneArray[i].dueDate + "<br> <br>";
-    //Linebreaker
-    dangerLevelOneHtml.innerHTML += "------------------------------------ <br>";
+function main() {
+    declareWork()
+    sortArrays();
+    updateHtml();
 }
+
+document.onload = main();
