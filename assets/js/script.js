@@ -141,13 +141,13 @@ function updateHtml() {
         newDiv.classList.add("workDiv")
         
         //Title
-        newDiv.append(createParagraph(dangerLevelOneHtml[i].title));
+        newDiv.append(createParagraph(dangerLevelOneArray[i].title));
         //Subject
-        newDiv.append(createParagraph(dangerLevelOneHtml[i].subject));
+        newDiv.append(createParagraph(dangerLevelOneArray[i].subject));
         //Link
-        newDiv.append(createParagraph(dangerLevelOneHtml[i].description));
+        newDiv.append(createParagraph(dangerLevelOneArray[i].description));
         //Date
-        newDiv.append(createParagraph(dangerLevelOneHtml[i].dueDate));
+        newDiv.append(createParagraph(dangerLevelOneArray[i].dueDate));
         //appendTohtml
         dangerLevelOneHtml.append(newDiv);
     }
